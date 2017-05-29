@@ -1,0 +1,68 @@
+[
+  {
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "type": "user",
+          "id": "1",
+          "attributes": {
+            "firstname": "John",
+            "lastname": "Doe"
+          }
+        },
+        {
+          "type": "user",
+          "id": "2",
+          "attributes": {
+            "firstname": "Maria",
+            "lastname": "Lobster"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "status": 500,
+    "response": {
+      "message": "something went wrong"
+    }
+  },
+  {
+    "status": 200,
+    "response": {
+      "data": [
+        {
+          "type": "user",
+          "id": "1",
+          "attributes": {
+            "firstname": "John",
+            "lastname": "Doe"
+          }
+        },
+        {
+          "type": "user",
+          "id": "2",
+          "attributes": {
+            "firstname": "Maria",
+            "lastname": "Lobster"
+          }
+        },
+        {
+          "type": "user",
+          "id": "3",
+          "attributes": {
+            "firstname": "Sue",
+            "lastname": "Muller"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "status": 404,
+    "response": {
+      "message": "no users found"
+    }
+  }
+]

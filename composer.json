@@ -1,0 +1,17 @@
+{
+    "name": "karriereat/mocky",
+    "authors": [
+        {
+            "name": "johannes.pichler",
+            "email": "johannes.pichler@karriere.at"
+        }
+    ],
+    "require": {
+        "slim/slim-skeleton": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Karriere\\Mocky\\": "src"
+        }
+    }
+}

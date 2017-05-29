@@ -1,0 +1,8 @@
+{
+  "GET": {
+    "/user": {
+      "content-type": "application/vnd.api+json",
+      "mock": "user/sample-user.json"
+    }
+  }
+}
