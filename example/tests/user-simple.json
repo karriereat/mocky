@@ -1,8 +1,12 @@
 {
   "GET": {
-    "/user": {
+    "/users": {
       "content-type": "application/vnd.api+json",
-      "mock": "user/sample-user.json"
+      "mock": "users/list-users.json"
+    },
+    "/users/1": {
+      "content-type": "application/vnd.api+json",
+      "mock": "users/single-user.json"
     }
   }
 }

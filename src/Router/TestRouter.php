@@ -22,6 +22,7 @@ class TestRouter extends Router
 
     public function setup(App $app, State $state)
     {
+        $testRouter = $this;
         $test = $state->getActiveTest();
 
         if (!empty($test)) {
@@ -32,11 +33,9 @@ class TestRouter extends Router
 
                 foreach ($methods as $method => $routes) {
                     foreach ($routes as $route => $params) {
-                        $that = $this;
-
                         $app->map([$method], $route,
-                            function (Request $request, Response $response) use ($that, $params, $route, $state) {
-                                return $that->mock(
+                            function (Request $request, Response $response) use ($testRouter, $params, $route, $state) {
+                                return $testRouter->mock(
                                     $response,
                                     $state,
                                     $route,

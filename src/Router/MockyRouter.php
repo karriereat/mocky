@@ -11,9 +11,9 @@ class MockyRouter extends Router
 {
     public function setup(App $app, State $state)
     {
-        $that = $this;
+        $mockyRouter = $this;
 
-        $app->get('/setup/{name}', function (Request $request, Response $response) use ($state, $that) {
+        $app->get('/setup/{name}', function (Request $request, Response $response) use ($state, $mockyRouter) {
             $testName = $request->getAttribute('name', null);
 
             $state->setActiveTest($testName);
@@ -23,7 +23,7 @@ class MockyRouter extends Router
                 'message' => sprintf('tests scope switched to %s', $testName),
             ]);
 
-            return $that->respond($response, 200, 'application/json', $body);
+            return $mockyRouter->respond($response, 200, 'application/json', $body);
         });
     }
 }
