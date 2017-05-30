@@ -21,7 +21,7 @@ class MockyRouter extends Router
 
             $body = json_encode([
                 'status' => 200,
-                'message' => sprintf('tests scope switched to %s', $testName),
+                'message' => sprintf("test name set to '%s' - test scope set to '%s'", $testName, $testScope),
             ]);
 
             return $mockyRouter->respond($response, 200, 'application/json', $body);
