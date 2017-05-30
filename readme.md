@@ -1,3 +1,6 @@
+<a href="https://www.karriere.at/" target="_blank"><img width="200" src="http://www.karriere.at/images/layout/katlogo.svg"></a>
+<span>&nbsp;&nbsp;&nbsp;</span>
+
 # Mocky - A simple api mock server
 
 Mocky is a simple API mocking solution written in PHP based on the [Slim Framework](https://www.slimframework.com/).
