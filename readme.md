@@ -40,7 +40,7 @@ Use `example/mocks/users/list-users.json` as a reference.
 
 To deliver your mock data you need to setup your test case. To do so you call the mocky setup endpoint `/setup/{scope}/{test-name}`.
 
-The scope variable is needed to allow paralell access to mocky from different applications. The default scope is called `default`.
+The scope variable is needed to allow parallel access to mocky from different applications. The default scope is called `default`.
 
 **Example:**
 `http://localhost/setup/default/users-simple`
