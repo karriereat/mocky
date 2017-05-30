@@ -52,6 +52,8 @@ This endpoint call will setup the `users-simple` test case defined in `tests/use
 
 To be able to use another scope you simply call the `setup` route with your custom scope name and on each real api call you need to include a request header called `Mocky-Scope` with the custom scope name as value.
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=UYyWKrbJjAM" target="_blank"><img src="http://img.youtube.com/vi/UYyWKrbJjAM/0.jpg" alt="Mocky Demo" width="240" height="180" border="10" /></a>
+
 ## Webserver Setup
 
 ### Built-In PHP Webserver (local development)
