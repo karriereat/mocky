@@ -13,10 +13,11 @@ class MockyRouter extends Router
     {
         $mockyRouter = $this;
 
-        $app->get('/setup/{name}', function (Request $request, Response $response) use ($state, $mockyRouter) {
+        $app->get('/setup/{scope}/{name}', function (Request $request, Response $response) use ($state, $mockyRouter) {
             $testName = $request->getAttribute('name', null);
+            $testScope = $request->getAttribute('scope', null);
 
-            $state->setActiveTest($testName);
+            $state->setActiveTest($testName, $testScope);
 
             $body = json_encode([
                 'status' => 200,
