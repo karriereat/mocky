@@ -29,7 +29,16 @@ class Mocky
             session_start();
         }
 
-        $state = State::load();
+        $request = $this->app->getContainer()->get('request');
+        $scope = $request->getHeader('Mocky-Scope');
+
+        if(empty($scope)) {
+            $scope = 'default';
+        } else {
+            $scope = reset($scope);
+        }
+
+        $state = State::load($scope);
 
         (new TestRouter($this->configDirectory))->setup($this->app, $state);
         (new MockyRouter($this->configDirectory))->setup($this->app, $state);
