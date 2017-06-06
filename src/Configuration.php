@@ -8,6 +8,7 @@ class Configuration extends ArrayObject
 {
     /**
      * Configuration constructor.
+     *
      * @param string $configFile
      */
     public function __construct($configFile)

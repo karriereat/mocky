@@ -9,19 +9,21 @@ use Slim\Http\Response;
 abstract class Router
 {
     /**
-     * register the router routes on the slim app instance
+     * register the router routes on the slim app instance.
      *
-     * @param App $app
+     * @param App   $app
      * @param State $state
+     *
      * @return void
      */
-    public abstract function setup(App $app, State $state);
+    abstract public function setup(App $app, State $state);
 
     /**
      * @param Response $response
-     * @param int $statusCode
-     * @param string $contentType
-     * string @param $body
+     * @param int      $statusCode
+     * @param string   $contentType
+     *                              string @param $body
+     *
      * @return Response
      */
     protected function respond(Response $response, $statusCode, $contentType, $body)

@@ -26,7 +26,7 @@ class TestRouter extends Router
         $test = $state->getActiveTest();
 
         if (!empty($test)) {
-            $testConfig = Path::join($this->configDirectory, 'tests', $test . '.json');
+            $testConfig = Path::join($this->configDirectory, 'tests', $test.'.json');
 
             if (file_exists($testConfig)) {
                 $methods = json_decode(file_get_contents($testConfig), true);
@@ -59,7 +59,7 @@ class TestRouter extends Router
         if (is_array($mock)) {
             $iteration = $state->getIteration($route);
 
-            if($iteration >= count($mock)) {
+            if ($iteration >= count($mock)) {
                 $iteration = count($mock) - 1;
             }
 
