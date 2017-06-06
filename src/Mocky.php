@@ -32,7 +32,7 @@ class Mocky
         $request = $this->app->getContainer()->get('request');
         $scope = $request->getHeader('Mocky-Scope');
 
-        if(empty($scope)) {
+        if (empty($scope)) {
             $scope = 'default';
         } else {
             $scope = reset($scope);

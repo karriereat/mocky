@@ -4,9 +4,9 @@ namespace Karriere\Mocky;
 
 class Path
 {
-    public static function join(... $paths)
+    public static function join(...$paths)
     {
-        $path = "";
+        $path = '';
         for ($i = 0; $i < count($paths); $i++) {
             $path = self::joinPaths($path, $paths[$i]);
         }
@@ -25,9 +25,9 @@ class Path
         }
 
         if (substr($path1, -1) === DIRECTORY_SEPARATOR) {
-            return $path1 . $path2;
+            return $path1.$path2;
         }
 
-        return $path1 . DIRECTORY_SEPARATOR . $path2;
+        return $path1.DIRECTORY_SEPARATOR.$path2;
     }
 }

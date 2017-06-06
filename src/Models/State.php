@@ -4,7 +4,7 @@ namespace Karriere\Mocky\Models;
 
 class State
 {
-    const STATE_PATH = __DIR__ . '/../../state/';
+    const STATE_PATH = __DIR__.'/../../state/';
 
     private $activeTest;
 
@@ -15,8 +15,8 @@ class State
     {
         $state = self::create('', $scope);
 
-        if(file_exists(self::STATE_PATH . $scope . '.state')) {
-            $state = unserialize(file_get_contents(self::STATE_PATH . $scope . '.state'));
+        if (file_exists(self::STATE_PATH.$scope.'.state')) {
+            $state = unserialize(file_get_contents(self::STATE_PATH.$scope.'.state'));
         }
 
         return $state;
@@ -24,7 +24,7 @@ class State
 
     public static function store($state)
     {
-        file_put_contents(self::STATE_PATH . $state->testScope . '.state', serialize($state));
+        file_put_contents(self::STATE_PATH.$state->testScope.'.state', serialize($state));
     }
 
     private static function create($testName, $testScope)

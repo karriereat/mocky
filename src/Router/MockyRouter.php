@@ -20,7 +20,7 @@ class MockyRouter extends Router
             $state->setActiveTest($testName, $testScope);
 
             $body = json_encode([
-                'status' => 200,
+                'status'  => 200,
                 'message' => sprintf("test name set to '%s' - test scope set to '%s'", $testName, $testScope),
             ]);
 
