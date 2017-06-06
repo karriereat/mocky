@@ -93,3 +93,6 @@ server {
 
 ### Apache
 Your document root points to the `public` directory and you need to make sure that `mod_rewrite` is available.
+
+## License
+Apache License 2.0 Please see [LICENSE](LICENSE) for more information.
