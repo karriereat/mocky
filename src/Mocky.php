@@ -15,15 +15,15 @@ class Mocky
     private $app;
 
     /**
-     * @var string
+     * @var Configuration
      */
-    private $configDirectory;
+    private $config;
 
-    public function __construct($configDirectory)
+    public function __construct(Configuration $config)
     {
         $this->app = new App();
 
-        $this->configDirectory = $configDirectory;
+        $this->config = $config;
 
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
@@ -40,8 +40,8 @@ class Mocky
 
         $state = State::load($scope);
 
-        (new TestRouter($this->configDirectory))->setup($this->app, $state);
-        (new MockyRouter($this->configDirectory))->setup($this->app, $state);
+        (new TestRouter($this->config->directory))->setup($this->app, $state);
+        (new MockyRouter($this->config->directory))->setup($this->app, $state);
     }
 
     public function run()
