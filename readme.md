@@ -5,7 +5,7 @@
 </p>
 
 
-# Mocky - A simple api mock server
+# Mocky - A simple API mock server
 
 Mocky is a simple API mocking solution written in PHP based on the [Slim Framework](https://www.slimframework.com/).
 
@@ -39,7 +39,7 @@ The root elements of the test definintion defines the request methods. Each requ
 The key of each request definition is the route (e.g. `/users`). Each request definitions must define a `content-type` and a `mock` field. The mock field is a reference to the mock data file to deliver.
 
 ### Mock Data
-A mock data file contains an array of mock responses. Each mock response must have a `status` and a `response` field. The `status` field defines the HTTP status code and the `response` field the api response in json format.
+A mock data file contains an array of mock responses. Each mock response must have a `status` and a `response` field. The `status` field defines the HTTP status code and the `response` field the API response in json format.
 
 Use `example/mocks/users/list-users.json` as a reference.
 
@@ -54,7 +54,7 @@ The scope variable is needed to allow parallel access to mocky from different ap
 
 This endpoint call will setup the `users-simple` test case defined in `tests/users-simple.json`.
 
-To be able to use another scope you simply call the `setup` route with your custom scope name and on each real api call you need to include a request header called `Mocky-Scope` with the custom scope name as value.
+To be able to use another scope you simply call the `setup` route with your custom scope name and on each real API call you need to include a request header called `Mocky-Scope` with the custom scope name as value.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=UYyWKrbJjAM" target="_blank"><img src="http://img.youtube.com/vi/UYyWKrbJjAM/0.jpg" alt="Mocky Demo" width="240" height="180" border="10" /></a>
 
