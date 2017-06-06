@@ -1,5 +1,8 @@
 {
     "name": "karriere/mocky",
+    "description": "Mocky is a simple API mocking solution written in PHP",
+    "keywords": ["php", "api-mocking", "mock-server"],
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "johannes.pichler",
