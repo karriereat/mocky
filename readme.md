@@ -1,4 +1,4 @@
-<a href="https://www.karriere.at/" target="_blank"><img width="200" src="http://www.karriere.at/images/layout/katlogo.svg"></a>
+<a href="https://www.karriere.at/" target="_blank"><img width="400" src="http://www.kcdn.at/static/logomocky.png"></a>
 <span>&nbsp;&nbsp;&nbsp;</span>
 
 # Mocky - A simple api mock server
