@@ -15,6 +15,11 @@ class Configuration extends ArrayObject
         parent::__construct($this->load($configFile));
     }
 
+    public function __get($name)
+    {
+        return $this[$name];
+    }
+
     private function load($file)
     {
         return require $file;
