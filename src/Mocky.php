@@ -2,7 +2,6 @@
 
 namespace Karriere\Mocky;
 
-use Karriere\Mocky\Models\State;
 use Karriere\Mocky\Router\MockyRouter;
 use Karriere\Mocky\Router\TestRouter;
 use Slim\App;
@@ -38,7 +37,7 @@ class Mocky
             $scope = reset($scope);
         }
 
-        $state = State::load($scope);
+        $state = (new StateManager($config))->load($scope);
 
         (new TestRouter($this->config->directory))->setup($this->app, $state);
         (new MockyRouter($this->config->directory))->setup($this->app, $state);

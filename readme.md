@@ -10,10 +10,15 @@
 
 Mocky is a simple API mocking solution written in PHP based on the [Slim Framework](https://www.slimframework.com/).
 
-## Creating a new mocky API
-
+## Installation
+You can either create a new mock api by using the `mocky-template` as a starting point
 ```
-composer create-project karriere/mocky /destination/path
+composer create-project karriere/mocky-template /destination/path
+```
+
+or add mocky as a dependency to your project.
+```
+composer require karriere/mocky
 ```
 
 ## Configuration
