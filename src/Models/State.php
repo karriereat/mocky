@@ -6,13 +6,24 @@ use Karriere\Mocky\Path;
 
 class State
 {
-    const STATE_PATH = __DIR__ . '/../../state/';
-
+    /**
+     * @var string
+     */
     private $statePath;
 
+    /**
+     * @var string
+     */
     private $activeTest;
 
+    /**
+     * @var array
+     */
     private $testRoutes = [];
+
+    /**
+     * @var string
+     */
     private $testScope;
 
     public function __construct($statePath, $scope)
