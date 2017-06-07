@@ -32,13 +32,13 @@ class Mocky
         $request = $this->app->getContainer()->get('request');
         $scope = $request->getHeader('Mocky-Scope');
 
-        if(empty($scope)) {
+        if (empty($scope)) {
             $scope = 'default';
         } else {
             $scope = reset($scope);
         }
 
-        $state = State::load($scope);
+        $state = (new StateManager($config))->load($scope);
 
         (new TestRouter($this->config->directory))->setup($this->app, $state);
         (new MockyRouter($this->config->directory))->setup($this->app, $state);

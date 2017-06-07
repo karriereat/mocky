@@ -2,38 +2,23 @@
 
 namespace Karriere\Mocky\Models;
 
+use Karriere\Mocky\Path;
+
 class State
 {
     const STATE_PATH = __DIR__ . '/../../state/';
+
+    private $statePath;
 
     private $activeTest;
 
     private $testRoutes = [];
     private $testScope;
 
-    public static function load($scope)
+    public function __construct($statePath, $scope)
     {
-        $state = self::create('', $scope);
-
-        if(file_exists(self::STATE_PATH . $scope . '.state')) {
-            $state = unserialize(file_get_contents(self::STATE_PATH . $scope . '.state'));
-        }
-
-        return $state;
-    }
-
-    public static function store($state)
-    {
-        file_put_contents(self::STATE_PATH . $state->testScope . '.state', serialize($state));
-    }
-
-    private static function create($testName, $testScope)
-    {
-        $instance = new self();
-        $instance->activeTest = $testName;
-        $instance->testScope = $testScope;
-
-        return $instance;
+        $this->statePath = $statePath;
+        $this->testScope = $scope;
     }
 
     public function getActiveTest()
@@ -46,7 +31,7 @@ class State
         $this->activeTest = $testName;
         $this->testScope = $testScope;
         $this->testRoutes = [];
-        self::store($this);
+        $this->store();
     }
 
     public function getIteration($route)
@@ -59,8 +44,14 @@ class State
 
         $this->testRoutes[$route] = $iteration + 1;
 
-        self::store($this);
+        $this->store();
 
         return $iteration;
+    }
+
+    private function store()
+    {
+        $file = Path::join($this->statePath, $this->testScope . '.state');
+        file_put_contents($file, serialize($this));
     }
 }
