@@ -2,7 +2,6 @@
 
 namespace Karriere\Mocky;
 
-use Karriere\Mocky\Models\State;
 use Karriere\Mocky\Router\MockyRouter;
 use Karriere\Mocky\Router\TestRouter;
 use Slim\App;
