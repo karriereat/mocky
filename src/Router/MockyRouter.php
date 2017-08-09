@@ -13,8 +13,17 @@ class MockyRouter extends Router
     {
         $mockyRouter = $this;
 
-        $app->get('/setup/{scope}/{name}', function (Request $request, Response $response) use ($state, $mockyRouter) {
+        $app->get('/setup/{scope}/{folder}[/{name}]', function (Request $request, Response $response) use ($state, $mockyRouter) {
             $testName = $request->getAttribute('name', null);
+            $folder = $request->getAttribute('folder');
+
+            if (is_null($testName)) {
+                $testName = $folder;
+                $folder = null;
+            } else {
+                $testName = $folder . DIRECTORY_SEPARATOR  . $testName;
+            }
+
             $testScope = $request->getAttribute('scope', null);
 
             $state->setActiveTest($testName, $testScope);
