@@ -40,7 +40,7 @@ class Mocky
         $state = (new StateManager($config))->load($scope);
 
         (new TestRouter($this->config->directory))->setup($this->app, $state);
-        (new MockyRouter($this->config->directory))->setup($this->app, $state);
+        (new MockyRouter())->setup($this->app, $state);
     }
 
     public function run()
