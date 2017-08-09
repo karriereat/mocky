@@ -21,7 +21,7 @@ class MockyRouter extends Router
                 $testName = $folder;
                 $folder = null;
             } else {
-                $testName = $folder . DIRECTORY_SEPARATOR  . $testName;
+                $testName = $folder.DIRECTORY_SEPARATOR.$testName;
             }
 
             $testScope = $request->getAttribute('scope', null);
