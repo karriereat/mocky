@@ -22,8 +22,32 @@ composer require karriere/mocky
 ```
 
 ## Configuration
-With mocky you can define your test cases via JSON. These JSON files are stored in the `tests` folder. Each test case can contain multiple endpoint definitions.
+With mocky you can define your test cases via JSON. The configuration consists of two file types:
 
+* test files
+* mock files
+
+A test file contains all your test endpoints (grouped by the request method) and references one or multiple mock files. The mock file defines the mock data to return. This seperation allows you to reuse mock data over multiple tests.
+
+### Writing a test file
+A test file is stored in the `tests` folder and has the following basic structure
+
+```json
+{
+  "REQUEST_METHOD": {
+    "ENDPOINT": {
+        "content-type": "application/json",
+        "mock": "mock-file.json"
+    }
+  }
+}
+```
+
+The test file is a map of request methods (GET, POST, PUT, DELETE, ...). Each request method entry contains a map of endpoints as key and the endpoint definition as value.
+
+Each request definition must define a `content-type` and a `mock` field. The mock field is a reference to the mock data file to deliver.
+
+*Example:*
 ```json
 {
   "GET": {
@@ -39,15 +63,19 @@ With mocky you can define your test cases via JSON. These JSON files are stored 
 }
 ```
 
-The root elements of the test definintion defines the request methods. Each request method can contain multiple route definitions:
+#### Structuring your tests
+To be able to structure your test json files by feature a test can be stored in a subfolder.
 
-### Request Definition
-The key of each request definition is the route (e.g. `/users`). Each request definitions must define a `content-type` and a `mock` field. The mock field is a reference to the mock data file to deliver.
+For example to store multiple tests for a user feature you can create a test under `tests/user/a-test.json`. This test has the following setup route `/setup/{scope}/user/a-test`.
 
-### Mock Data
-A mock data file contains an array of mock responses. Each mock response must have a `status` and a `response` field. The `status` field defines the HTTP status code and the `response` field the API response in json format.
+### Writing a mock file
+A mock file contains an array of mock responses. Each mock response must have a `status` and a `response` field. The `status` field defines the HTTP status code and the `response` field the API response in json format.
 
 Use `example/mocks/users/list-users.json` as a reference.
+
+The mock file uses an array of mock response because you often need different data on subsequent requests.
+
+Lets consider a simple example. You want to test a user feature. Your frontend makes an GET api call to `/users` and receives 2 user entries. Then the test sends a POST to `/users` to create a new user and then executes the GET `/users` again. In the second case 3 user entries should be returned.
 
 ## Using mocky
 
