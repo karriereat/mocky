@@ -22,7 +22,7 @@ abstract class Router
      * @param Response $response
      * @param int      $statusCode
      * @param string   $contentType
-     *                              string @param $body
+     * @param string   $body
      *
      * @return Response
      */
