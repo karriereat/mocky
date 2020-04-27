@@ -25,9 +25,9 @@ class Path
         }
 
         if (substr($path1, -1) === DIRECTORY_SEPARATOR) {
-            return $path1.$path2;
+            return $path1 . $path2;
         }
 
-        return $path1.DIRECTORY_SEPARATOR.$path2;
+        return $path1 . DIRECTORY_SEPARATOR . $path2;
     }
 }

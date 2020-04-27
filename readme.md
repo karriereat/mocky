@@ -4,9 +4,9 @@
 </a>
 </p>
 
-
 # Mocky - A simple API mock server
-[![StyleCI](https://styleci.io/repos/92734611/shield?branch=master)](https://styleci.io/repos/92734611)
+![Test](https://github.com/karriereat/mocky/workflows/test/badge.svg)
+![Lint](https://github.com/karriereat/mocky/workflows/lint/badge.svg)
 
 Mocky is a simple API mocking solution written in PHP based on the [Slim Framework](https://www.slimframework.com/).
 

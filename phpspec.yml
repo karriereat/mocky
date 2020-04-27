@@ -1,0 +1,8 @@
+suites:
+  main:
+    namespace: Karriere\Mocky
+    psr4_prefix: Karriere\Mocky
+    src_path: src
+    spec_prefix: tests\specs
+
+formatter.name: pretty

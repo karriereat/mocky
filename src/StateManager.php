@@ -21,7 +21,7 @@ class StateManager
     public function load($scope)
     {
         $statePath = $this->configuration->statePath;
-        $stateFile = Path::join($statePath, $scope.'.state');
+        $stateFile = Path::join($statePath, $scope . '.state');
 
         if (file_exists($stateFile)) {
             $state = unserialize(file_get_contents($stateFile));

@@ -10,11 +10,20 @@
         }
     ],
     "require": {
-        "slim/slim-skeleton": "^3.1"
+        "php": ">=7.2",
+        "slim/slim-skeleton": "^4.0"
     },
     "autoload": {
         "psr-4": {
             "Karriere\\Mocky\\": "src"
         }
+    },
+    "require-dev": {
+        "karriere/code-quality": "^5.1"
+    },
+    "scripts": {
+        "test": "Karriere\\CodeQuality\\SpecificationTest::run",
+        "lint": "Karriere\\CodeQuality\\CodeStyleChecker::run",
+        "fix": "Karriere\\CodeQuality\\CodeStyleFixer::run"
     }
 }

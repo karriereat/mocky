@@ -5,6 +5,8 @@ namespace Karriere\Mocky;
 use Karriere\Mocky\Router\MockyRouter;
 use Karriere\Mocky\Router\TestRouter;
 use Slim\App;
+use Slim\Factory\AppFactory;
+use Slim\Factory\ServerRequestCreatorFactory;
 
 class Mocky
 {
@@ -20,15 +22,16 @@ class Mocky
 
     public function __construct(Configuration $config)
     {
-        $this->app = new App();
+        $this->app = AppFactory::create();
 
         $this->config = $config;
 
-        if (session_status() == PHP_SESSION_NONE) {
+        if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
-        $request = $this->app->getContainer()->get('request');
+        $serverRequestCreator = ServerRequestCreatorFactory::create();
+        $request = $serverRequestCreator->createServerRequestFromGlobals();
         $scope = $request->getHeader('Mocky-Scope');
 
         if (empty($scope)) {
