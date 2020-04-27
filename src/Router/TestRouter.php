@@ -5,8 +5,8 @@ namespace Karriere\Mocky\Router;
 use Karriere\Mocky\Models\State;
 use Karriere\Mocky\Path;
 use Slim\App;
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Psr7\Request;
+use Slim\Psr7\Response;
 
 class TestRouter extends Router
 {
@@ -26,14 +26,16 @@ class TestRouter extends Router
         $test = $state->getActiveTest();
 
         if (!empty($test)) {
-            $testConfig = Path::join($this->configDirectory, 'tests', $test.'.json');
+            $testConfig = Path::join($this->configDirectory, 'tests', $test . '.json');
 
             if (file_exists($testConfig)) {
                 $methods = json_decode(file_get_contents($testConfig), true);
 
                 foreach ($methods as $method => $routes) {
                     foreach ($routes as $route => $params) {
-                        $app->map([$method], $route,
+                        $app->map(
+                            [$method],
+                            $route,
                             function (Request $request, Response $response) use ($testRouter, $params, $route, $state) {
                                 return $testRouter->mock(
                                     $response,

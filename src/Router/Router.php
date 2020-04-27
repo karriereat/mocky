@@ -4,7 +4,7 @@ namespace Karriere\Mocky\Router;
 
 use Karriere\Mocky\Models\State;
 use Slim\App;
-use Slim\Http\Response;
+use Slim\Psr7\Response;
 
 abstract class Router
 {

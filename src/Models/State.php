@@ -62,7 +62,7 @@ class State
 
     private function store()
     {
-        $file = Path::join($this->statePath, $this->testScope.'.state');
+        $file = Path::join($this->statePath, $this->testScope . '.state');
         file_put_contents($file, serialize($this));
     }
 }
