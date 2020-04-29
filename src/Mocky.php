@@ -5,6 +5,7 @@ namespace Karriere\Mocky;
 use Karriere\Mocky\Router\MockyRouter;
 use Karriere\Mocky\Router\TestRouter;
 use Slim\App;
+use Slim\Error\Renderers\JsonErrorRenderer;
 use Slim\Factory\AppFactory;
 use Slim\Factory\ServerRequestCreatorFactory;
 
@@ -23,6 +24,7 @@ class Mocky
     public function __construct(Configuration $config)
     {
         $this->app = AppFactory::create();
+        $this->setErrorHandler();
 
         $this->config = $config;
 
@@ -49,5 +51,12 @@ class Mocky
     public function run()
     {
         $this->app->run();
+    }
+
+    private function setErrorHandler()
+    {
+        $errorMiddleware = $this->app->addErrorMiddleware(false, false, false);
+        $errorHandler = $errorMiddleware->getDefaultErrorHandler();
+        $errorHandler->registerErrorRenderer('application/vnd.api+json', JsonErrorRenderer::class);
     }
 }
