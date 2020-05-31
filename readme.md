@@ -84,9 +84,9 @@ To deliver your mock data you need to setup your test case. To do so you call th
 The scope variable is needed to allow parallel access to mocky from different applications. The default scope is called `default`.
 
 **Example:**
-`http://localhost/setup/default/users-simple`
+`http://localhost:8888/setup/default/user-simple`
 
-This endpoint call will setup the `users-simple` test case defined in `tests/users-simple.json`.
+This endpoint call will setup the `user-simple` test case defined in `tests/user-simple.json`.
 
 To be able to use another scope you simply call the `setup` route with your custom scope name and on each real API call you need to include a request header called `Mocky-Scope` with the custom scope name as value.
 
