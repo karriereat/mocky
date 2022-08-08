@@ -1,3 +1,4 @@
 vendor/
 state/*.state
 composer.lock
+.php-cs-fixer.cache
