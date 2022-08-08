@@ -19,11 +19,14 @@
         }
     },
     "require-dev": {
-        "karriere/code-quality": "^5.1"
+        "friends-of-phpspec/phpspec-code-coverage": "^6.1",
+        "friendsofphp/php-cs-fixer": "^3.9",
+        "phpspec/phpspec": "^7.2"
     },
     "scripts": {
-        "test": "Karriere\\CodeQuality\\SpecificationTest::run",
-        "lint": "Karriere\\CodeQuality\\CodeStyleChecker::run",
-        "fix": "Karriere\\CodeQuality\\CodeStyleFixer::run"
+        "test": "phpspec run",
+        "coverage": "phpspec run --config=phpspec-coverage.yml",
+        "lint": "php-cs-fixer fix src --rules=@PSR12 -v --dry-run",
+        "fix": "php-cs-fixer fix src --rules=@PSR12 -v"
     }
 }
