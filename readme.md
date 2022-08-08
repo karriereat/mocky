@@ -1,6 +1,6 @@
 <p align="center">
 <a href="https://www.karriere.at/" target="_blank">
-    <img width="400" src="http://www.kcdn.at/static/logomocky.png">
+    <img width="400" src="logo.png">
 </a>
 </p>
 
